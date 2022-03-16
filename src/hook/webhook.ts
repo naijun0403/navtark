@@ -36,7 +36,6 @@ export class WebhookClient extends TypedEmitter<WebhookEvent> {
 
     async start() {
         this.express.post(this.options.path, (req, res) => {
-            console.log('response')
             const body = req.body as DefaultResponseEvent;
             switch (body.event) {
                 case "open": {
