@@ -1,0 +1,21 @@
+{
+  "name": "navtark",
+  "version": "1.0.0",
+  "description": "navertalk for nodejs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "naijun0403",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "eventemitter3": "^4.0.7",
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13"
+  }
+}
