@@ -17,11 +17,11 @@ export class TalkChatData {
     ) {
     }
 
-    get text() {
-        return this.event.textContent.text;
+    get text(): string {
+        return this.event.textContent.text || '';
     }
 
-    get userId() {
+    get userId(): string {
         return this.event.user
     }
 
@@ -34,6 +34,6 @@ export class TalkChatData {
     }
 
     get inputType(): string {
-        return this.event.textContent.inputType;
+        return this.event.textContent.inputType || '';
     }
 }
