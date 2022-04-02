@@ -18,6 +18,7 @@ export class TalkChatData {
     }
 
     get text(): string {
+        if (this.event.textContent === undefined) return '';
         return this.event.textContent.text || '';
     }
 
