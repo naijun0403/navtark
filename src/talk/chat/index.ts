@@ -5,7 +5,7 @@
  * PLEASE CHECK LICENSE THE LICENSE OF THE PROJECT REPOSITORY
  */
 
-import {SendEvent} from "../../packet";
+import { SendEvent } from "../../packet";
 
 export interface Chat {
     text: string;
