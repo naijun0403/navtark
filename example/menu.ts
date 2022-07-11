@@ -6,7 +6,7 @@
  */
 
 import { NavtarkClient, DetailMenuBuilder, MenuBuilder, MenuDataBuilder } from "navtark";
-import fs from "fs";
+import * as fs from "fs";
 
 const client = new NavtarkClient({
     path: '/webhook',

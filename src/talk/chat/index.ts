@@ -31,10 +31,12 @@ export class TalkChatData {
     }
 
     get code(): string {
+        if (this.event.textContent === undefined) return '';
         return this.event.textContent.code || '';
     }
 
     get inputType(): string {
+        if (this.event.textContent === undefined) return '';
         return this.event.textContent.inputType || '';
     }
 }
