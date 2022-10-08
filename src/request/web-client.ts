@@ -5,7 +5,7 @@
  */
 
 import axios, {AxiosRequestConfig, Method} from "axios";
-import {structToResult} from "./struct/request";
+import {structToResult} from "./struct";
 import {BaseRequestRes, ProcessResponse} from "./index";
 import {DefaultRequestEvent} from "../event";
 
