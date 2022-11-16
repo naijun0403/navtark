@@ -35,6 +35,12 @@ export class WebhookClient extends TypedEmitter<WebhookEvent> {
     }
 
     async start() {
+        this.express.get('/', async (req, res, next) => {
+            await res.status(200).json({
+                message: 'navtark client running...'
+            });
+        })
+
         this.express.post(this.options.path, (req, res) => {
             const body = req.body as DefaultResponseEvent;
             switch (body.event) {
