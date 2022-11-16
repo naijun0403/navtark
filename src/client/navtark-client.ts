@@ -54,7 +54,7 @@ export interface ClientOptions extends https.ServerOptions {
     path: string;
     auth: string;
     port: number;
-    key: Buffer;
-    ca: Buffer;
-    cert: Buffer;
+    key?: Buffer;
+    ca?: Buffer;
+    cert?: Buffer;
 }

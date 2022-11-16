@@ -31,7 +31,7 @@ export class WebhookClient extends TypedEmitter<WebhookEvent> {
         server.on('listening', () => {
 
         })
-        server.listen(443)
+        server.listen(options.port)
     }
 
     async start() {
