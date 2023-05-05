@@ -13,6 +13,7 @@ import {TypedEmitter} from "../event";
 import {OpenEvent} from "../packet";
 import {SendEvent} from "../packet";
 import * as https from "https";
+import * as http from "http";
 
 export class WebhookClient extends TypedEmitter<WebhookEvent> {
     private readonly express: express.Express;
@@ -24,7 +25,12 @@ export class WebhookClient extends TypedEmitter<WebhookEvent> {
         this.express = express()
         this.express.use(bodyParser.json())
         this.express.set('port', options.port)
-        const server = https.createServer(options, this.express)
+        let server = null;
+        if (!options.isHttps) {
+            server = http.createServer(options, this.express)
+        } else {
+            server = https.createServer(options, this.express)
+        }
         server.on('error', (err) => {
             throw err;
         })
