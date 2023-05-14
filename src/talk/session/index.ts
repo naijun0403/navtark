@@ -19,7 +19,9 @@ export class TalkSession {
     async sendChat(chat: string | Chat): ProcessResponse {
         if (typeof chat === 'string') {
             chat = {
-                text: chat
+                textContent: {
+                    text: chat
+                }
             } as Chat
         }
 
@@ -29,7 +31,7 @@ export class TalkSession {
             {
                 event: 'send',
                 user: this.user,
-                textContent: chat
+                ...chat
             }
         )
     }

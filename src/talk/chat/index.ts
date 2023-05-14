@@ -6,9 +6,15 @@
  */
 
 import { SendEvent } from "../../packet";
+import { Image } from '../../packet/image';
+import { CompositeContent } from '../../packet/composite';
 
 export interface Chat {
-    text: string;
+    textContent?: {
+        text: string;
+    };
+    imageContent?: Image;
+    compositeContent?: CompositeContent;
 }
 
 export class TalkChatData {
