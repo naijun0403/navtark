@@ -32,7 +32,7 @@ export interface ChatEvent {
 }
 
 export interface UserEvent {
-    open: (data: OpenEvent) => void;
+    open: (data: OpenEvent, session: TalkSession) => void;
 }
 
 export interface ServerEvent {

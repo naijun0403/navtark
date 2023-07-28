@@ -17,6 +17,7 @@ import * as https from "https";
 
 export class NavtarkClient extends TypedEmitter<ClientEvent> {
     private readonly client: WebClient;
+    private readonly sessionMap: Map<string, TalkSession> = new Map<string, TalkSession>();
 
     constructor(
         private options: ClientOptions
@@ -40,12 +41,21 @@ export class NavtarkClient extends TypedEmitter<ClientEvent> {
     listen(webhook: WebhookClient) {
         webhook.on('send', data => {
             const chatData = new TalkChatData(data);
-            const session = new TalkSession(data.user, this.client);
+            if (!this.sessionMap.has(data.user)) {
+                const session = new TalkSession(data.user, this.client);
+                this.sessionMap.set(data.user, session);
+            }
+            const session = this.sessionMap.get(data.user);
             this.emit('chat', chatData, session);
         });
 
         webhook.on('open', data => {
-            this.emit('open', data);
+            if (!this.sessionMap.has(data.user)) {
+                const session = new TalkSession(data.user, this.client);
+                this.sessionMap.set(data.user, session);
+            }
+            const session = this.sessionMap.get(data.user);
+            this.emit('open', data, session);
         });
 
         webhook.on('push_packet', data => {
