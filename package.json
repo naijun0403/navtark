@@ -1,6 +1,6 @@
 {
   "name": "navtark",
-  "version": "1.1.5",
+  "version": "1.2.0",
   "description": "navertalk for nodejs",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
