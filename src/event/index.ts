@@ -31,10 +31,14 @@ export interface ChatEvent {
     chat: (data: TalkChatData, session: TalkSession) => void;
 }
 
+export interface UserEvent {
+    open: (data: OpenEvent) => void;
+}
+
 export interface ServerEvent {
     push_packet: (data: DefaultResponseEvent) => void;
 }
 
-export type ClientEvent = ChatEvent & ServerEvent;
+export type ClientEvent = ChatEvent & UserEvent & ServerEvent;
 
 export * from './eventemitter';

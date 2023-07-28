@@ -24,7 +24,7 @@ export class NavtarkClient extends TypedEmitter<ClientEvent> {
         super();
         if (!checkPath(options.path)) throw new Error('path does not match the format')
         const webhook = new WebhookClient(this.options);
-        webhook.start()
+        webhook.start().then()
         this.client = new WebClient('https', 'gw.talk.naver.com', options.auth)
         this.listen(webhook)
     }
@@ -42,6 +42,10 @@ export class NavtarkClient extends TypedEmitter<ClientEvent> {
             const chatData = new TalkChatData(data);
             const session = new TalkSession(data.user, this.client);
             this.emit('chat', chatData, session);
+        });
+
+        webhook.on('open', data => {
+            this.emit('open', data);
         });
 
         webhook.on('push_packet', data => {
