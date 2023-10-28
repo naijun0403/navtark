@@ -4,12 +4,10 @@
  *
  * PLEASE CHECK LICENSE THE LICENSE OF THE PROJECT REPOSITORY
  */
-
-import {QuickReply} from "../../packet";
-import {ButtonObject} from "../../packet";
+import { ButtonObject, Content } from '../../packet';
 
 export class QuickReplyBuilder {
-    private readonly obj: QuickReply;
+    private readonly obj: Content;
 
     constructor() {
         this.obj = {
@@ -34,7 +32,7 @@ export class QuickReplyBuilder {
         return this;
     }
 
-    build(): QuickReply {
+    build(): Content {
         return this.obj;
     }
 
