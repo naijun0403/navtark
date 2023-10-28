@@ -1,4 +1,4 @@
-import { Image } from './image';
+import { ImageContent } from './image';
 import { ButtonObject } from './button';
 
 export interface ElementList {
@@ -10,6 +10,6 @@ export interface ElementData {
     title: string;
     description?: string;
     subDescription?: string;
-    image?: Image;
+    image?: ImageContent;
     button?: ButtonObject;
 }

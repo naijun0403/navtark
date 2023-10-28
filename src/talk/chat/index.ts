@@ -5,15 +5,14 @@
  * PLEASE CHECK LICENSE THE LICENSE OF THE PROJECT REPOSITORY
  */
 
-import { SendEvent } from "../../packet";
-import { Image } from '../../packet/image';
+import { ButtonObject, SendEvent } from '../../packet';
+import { ImageContent } from '../../packet/image';
 import { CompositeContent } from '../../packet/composite';
+import { TextContent } from '../../packet/text';
 
 export interface Chat {
-    textContent?: {
-        text: string;
-    };
-    imageContent?: Image;
+    textContent?: TextContent;
+    imageContent?: ImageContent;
     compositeContent?: CompositeContent;
 }
 

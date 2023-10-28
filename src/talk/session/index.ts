@@ -7,7 +7,6 @@
 
 import {ProcessResponse, WebClient} from "../../request";
 import {Chat} from "../chat";
-import {QuickReply} from "../../packet";
 
 export class TalkSession {
     constructor(
@@ -32,18 +31,6 @@ export class TalkSession {
                 event: 'send',
                 user: this.user,
                 ...chat
-            }
-        )
-    }
-
-    async setQuick(data: QuickReply): ProcessResponse {
-        return await this.client.requestData(
-            'POST',
-            '/chatbot/v1/event',
-            {
-                event: 'send',
-                user: this.user,
-                textContent: data
             }
         )
     }
