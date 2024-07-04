@@ -25,7 +25,7 @@ export class WebClient {
     }
 
     getApiURL(path: string): string {
-        return `${this.url}/${path}`;
+        return `${this.url}${path}`;
     }
 
     async request(
