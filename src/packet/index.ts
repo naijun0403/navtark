@@ -13,6 +13,7 @@ export * from './persistent-menu';
 export * from './send';
 
 export interface Content {
+    code?: string;
     quickReply?: {
         buttonList?: ButtonObject[];
     }
