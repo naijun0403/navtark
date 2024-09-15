@@ -65,6 +65,7 @@ export class NavtarkClient extends TypedEmitter<ClientEvent> {
 }
 
 export interface ClientOptions extends https.ServerOptions {
+    talkHost: string;
     path: string;
     auth: string;
     port: number;
